@@ -47,6 +47,7 @@ export const Footer = () => {
     if (!isWorked) {
       setTimeout(() => {
         setModalEmailOpen(true);
+        localStorage.setItem("isAlreadyWorkedWithEmail", true);
       }, 15000);
     }
   }, []);
@@ -112,12 +113,13 @@ export const Footer = () => {
         <div className="container">
           <div className="footer__wrapper">
             <p className="footer__info">
-              BlazeBet не проводить гральні дії і не несе відповідальності за
-              будь-які фінансові втрати, пов'язані з азартними іграми. Ми
-              постійно закликаємо до розумного та обачного грального підходу.
+              Топ Від Стрімера не проводить гральні дії і не несе
+              відповідальності за будь-які фінансові втрати, пов'язані з
+              азартними іграми. Ми постійно закликаємо до розумного та обачного
+              грального підходу.
             </p>
           </div>
-          <button
+          {/* <button
             type="button"
             className="footer__button"
             onClick={() => {
@@ -125,7 +127,7 @@ export const Footer = () => {
             }}
           >
             Відмовитись від дзвінків
-          </button>
+          </button> */}
           <div className="footer__thumb">
             <img src={logo} alt="logotype" className="footer__logo" />
             <p className="footer__year">© {currentYear} streamingtt.top</p>
@@ -218,7 +220,7 @@ export const Footer = () => {
           </div>
         </div>
       )}
-      {modalOpen && (
+      {/* {modalOpen && (
         <div
           className="backdrop"
           id="backdrop"
@@ -274,7 +276,7 @@ export const Footer = () => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };

@@ -7,9 +7,12 @@ import first from "../../assets/first.png";
 import stars from "../../assets/stars.png";
 import top from "../../assets/top.png";
 import hot from "../../assets/hot.png";
+import casinoua from "../../assets/casinoua.png";
+import { useEffect, useState } from "react";
 
 export const Main = () => {
   const params = new URLSearchParams(document.location.search);
+  let pid = params.get("pid") ?? localStorage.getItem("pid");
   const sub1 = params.get("sub1") ?? localStorage.getItem("sub1");
   const sub2 = params.get("sub2") ?? localStorage.getItem("sub2");
   const sub3 = params.get("sub3") ?? localStorage.getItem("sub3");
@@ -19,6 +22,26 @@ export const Main = () => {
   const sub7 = params.get("sub7") ?? localStorage.getItem("sub7");
   const sub8 = params.get("sub8") ?? localStorage.getItem("sub8");
   const sub9 = params.get("sub9") ?? localStorage.getItem("sub9");
+  const [showOffers, setShowOffers] = useState(null);
+
+  useEffect(() => {
+    const showOffersParam = params.get("showOffers");
+
+    if (showOffersParam) {
+      const offerIds = showOffersParam.split(",").map(Number);
+      setShowOffers(new Set(offerIds));
+    } else {
+      setShowOffers(null);
+    }
+  }, []);
+
+  if (!pid) {
+    pid = 17;
+  }
+
+  if (pid !== null && pid) {
+    localStorage.setItem("pid", pid);
+  }
 
   if (sub1 !== null && sub1) {
     localStorage.setItem("sub1", sub1);
@@ -60,6 +83,10 @@ export const Main = () => {
     let n = {
       variables: {},
     };
+
+    if (pid !== null) {
+      n.variables["pid"] = pid;
+    }
     if (sub1 !== null) {
       n.variables["sub1"] = sub1;
     }
@@ -108,7 +135,7 @@ export const Main = () => {
       (function (e) {
         let t = new XMLHttpRequest();
         // eslint-disable-next-line no-unused-expressions
-        t.open("POST", "https://wq13531.customer.smartsender.eu/api/i/store"),
+        t.open("POST", "https://tosnusa12.customer.smartsender.eu/api/i/store"),
           t.setRequestHeader("Content-type", "application/json"),
           t.setRequestHeader("X-Requested-With", "XMLHttpRequest"),
           (t.onreadystatechange = function () {
@@ -173,13 +200,15 @@ export const Main = () => {
         onWebsiteSlotscityBtnClick();
       } else if (offer === "first") {
         onWebsiteFirstBtnClick();
+      } else if (offer === "casino") {
+        onWebsiteCasinoUABtnClick();
       }
     }, 3000);
   };
 
   function onWebsiteFavBtnClick() {
     window.location.href =
-      `https://hypertraff.top/tsnvWhrS?a=b` +
+      `https://sho.tgntraff.com/click?pid=${pid}&offer_id=802` +
       (sub1 !== null ? `&sub1=${sub1}` : "") +
       (sub2 !== null ? `&sub2=${sub2}` : "") +
       (sub3 !== null ? `&sub3=${sub3}` : "") +
@@ -193,7 +222,7 @@ export const Main = () => {
 
   function onWebsiteSuperBtnClick() {
     window.location.href =
-      `https://hypertraff.top/D5FBxB9T?a=b` +
+      `https://sho.tgntraff.com/click?pid=${pid}&offer_id=1262` +
       (sub1 !== null ? `&sub1=${sub1}` : "") +
       (sub2 !== null ? `&sub2=${sub2}` : "") +
       (sub3 !== null ? `&sub3=${sub3}` : "") +
@@ -207,7 +236,7 @@ export const Main = () => {
 
   function onWebsite777BtnClick() {
     window.location.href =
-      `https://hypertraff.top/4WjfCSnP?a=b` +
+      `https://sho.tgntraff.com/click?pid=${pid}&offer_id=1390` +
       (sub1 !== null ? `&sub1=${sub1}` : "") +
       (sub2 !== null ? `&sub2=${sub2}` : "") +
       (sub3 !== null ? `&sub3=${sub3}` : "") +
@@ -221,7 +250,7 @@ export const Main = () => {
 
   function onWebsiteGGbetBtnClick() {
     window.location.href =
-      `https://hypertraff.top/2XrMyF3M?a=b` +
+      `https://sho.tgntraff.com/click?pid=${pid}&offer_id=1052` +
       (sub1 !== null ? `&sub1=${sub1}` : "") +
       (sub2 !== null ? `&sub2=${sub2}` : "") +
       (sub3 !== null ? `&sub3=${sub3}` : "") +
@@ -235,7 +264,7 @@ export const Main = () => {
 
   function onWebsiteSlotscityBtnClick() {
     window.location.href =
-      `https://hypertraff.top/L2MtVzDh?a=b` +
+      `https://sho.tgntraff.com/click?pid=${pid}&offer_id=389` +
       (sub1 !== null ? `&sub1=${sub1}` : "") +
       (sub2 !== null ? `&sub2=${sub2}` : "") +
       (sub3 !== null ? `&sub3=${sub3}` : "") +
@@ -261,8 +290,25 @@ export const Main = () => {
       (sub9 !== null ? `&sub9=${sub9}` : "");
   }
 
+  function onWebsiteCasinoUABtnClick() {
+    window.location.href =
+      `https://sho.tgntraff.com/click?pid=${pid}&offer_id=1292` +
+      (sub1 !== null ? `&sub1=${sub1}` : "") +
+      (sub2 !== null ? `&sub2=${sub2}` : "") +
+      (sub3 !== null ? `&sub3=${sub3}` : "") +
+      (sub4 !== null ? `&sub4=${sub4}` : "") +
+      (sub5 !== null ? `&sub5=${sub5}` : "") +
+      (sub6 !== null ? `&sub6=${sub6}` : "") +
+      (sub7 !== null ? `&sub7=${sub7}` : "") +
+      (sub8 !== null ? `&sub8=${sub8}` : "") +
+      (sub9 !== null ? `&sub9=${sub9}` : "");
+  }
+
   return (
-    <main className="main">
+    <main
+      className="main"
+      style={showOffers?.size <= 3 ? { minHeight: "90vh" } : { fill: "dark" }}
+    >
       <div className="container">
         <p className="main__title">
           <svg
@@ -318,41 +364,90 @@ export const Main = () => {
           </svg>
         </p>
         <div className="main__thumb">
-          <div className="main__item" style={{ height: "294px" }}>
-            <div className="main__wrapper--top">
-              <div className="main__wrapper--two">
-                <img src={slotscity} alt="supergra" className="main__logo" />
-                <div>
-                  <p className="main__top--title">SlotsCity</p>
-                  <img src={stars} alt="" className="main__stars" />
+          {(!showOffers || showOffers.has(1)) && (
+            <div className="main__item">
+              <div className="fire">
+                <div className="main__wrapper--top">
+                  <div className="main__wrapper--two">
+                    <img src={ggbet} alt="GG" className="main__logo" />
+                    <div>
+                      <p className="main__top--title">GG</p>
+                      <img src={stars} alt="" className="main__stars" />
+                    </div>
+                  </div>
+                  <img src={hot} alt="info" className="main__info--svg" />
                 </div>
-              </div>
-              <img src={hot} alt="info" className="main__info--svg" />
-            </div>
-            <div className="main__middle" style={{ height: "117px" }}>
-              <div className="main__promo--wrapper">
-                <p className="main__text--top">100 FS</p>
-                <div className="main__fade">
-                  <p className="main__fade--text">Промокод</p>
-                  <div className="main__fade--promo">CLUBWIN</div>
+                <div className="main__middle">
+                  <div className="main__promo--wrapper">
+                    <p
+                      className="main__text--top"
+                      style={{ lineHeight: "59.1px" }}
+                    >
+                      12,000 ГРН
+                    </p>
+                  </div>
+                  <p
+                    className="main__text--bottom"
+                    style={{ lineHeight: "21.1px" }}
+                  >
+                    50FS
+                  </p>
                 </div>
+                <button
+                  type="button"
+                  className="main__button"
+                  onClick={(e) => {
+                    clickHandler(
+                      e,
+                      "tg://resolve?start=ZGw6MjIyODUz&domain=top_from_streamer_bot",
+                      "ggbet"
+                    );
+                  }}
+                >
+                  ОТРИМАТИ БОНУС
+                </button>
               </div>
-              <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
             </div>
-            <button
-              type="button"
-              className="main__button"
-              onClick={(e) => {
-                clickHandler(
-                  e,
-                  "tg://resolve?start=ZGw6MjEwNTMy&domain=spin_ua_bonus_bot",
-                  "slotscity"
-                );
-              }}
-            >
-              ОТРИМАТИ БОНУС
-            </button>
-          </div>
+          )}
+          {(!showOffers || showOffers.has(2)) && (
+            <div className="main__item" style={{ height: "294px" }}>
+              <div className="fire">
+                <div className="main__wrapper--top">
+                  <div className="main__wrapper--two">
+                    <img src={slotscity} alt="SC" className="main__logo" />
+                    <div>
+                      <p className="main__top--title">SC</p>
+                      <img src={stars} alt="" className="main__stars" />
+                    </div>
+                  </div>
+                  <img src={hot} alt="info" className="main__info--svg" />
+                </div>
+                <div className="main__middle" style={{ height: "117px" }}>
+                  <div className="main__promo--wrapper">
+                    <p className="main__text--top main__text--sc">100 FS</p>
+                    <div className="main__fade">
+                      <p className="main__fade--text">Промокод</p>
+                      <div className="main__fade--promo">CLUBWIN</div>
+                    </div>
+                  </div>
+                  <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
+                </div>
+                <button
+                  type="button"
+                  className="main__button"
+                  onClick={(e) => {
+                    clickHandler(
+                      e,
+                      "tg://resolve?start=ZGw6MjIyODUw&domain=top_from_streamer_bot",
+                      "slotscity"
+                    );
+                  }}
+                >
+                  ОТРИМАТИ БОНУС
+                </button>
+              </div>
+            </div>
+          )}
           {/* <div
             className="main__item"
             style={{
@@ -381,97 +476,119 @@ export const Main = () => {
               ОТРИМАТИ БОНУС
             </button>
           </div> */}
-          <div
-            className="main__item"
-            style={{
-              background: "linear-gradient(180deg, #892900 0%, #0C0802 100%)",
-            }}
-          >
-            <img src={ggbet} alt="logotype" width={254} height={76} />
-            <p className="main__text--top">12000₴</p>
-            <p className="main__text--bottom" style={{ color: "#FAFF00" }}>
-              +50 ФРІСПІНІВ
-            </p>
-            <div className="main__fade">
-              <p className="main__fade--text">Новий бонус</p>
-            </div>
-            <button
-              type="button"
-              className="main__button"
-              onClick={(e) => {
-                clickHandler(
-                  e,
-                  "tg://resolve?start=ZGw6MjA5MDY4&domain=spin_ua_bonus_bot",
-                  "ggbet"
-                );
-              }}
-            >
-              ОТРИМАТИ БОНУС
-            </button>
-          </div>
-          <div className="main__item">
-            <div className="main__wrapper--top">
-              <div className="main__wrapper--two">
-                <img src={supergra} alt="supergra" className="main__logo" />
-                <div>
-                  <p className="main__top--title">Super gra</p>
-                  <img src={stars} alt="" className="main__stars" />
+          {(!showOffers || showOffers.has(3)) && (
+            <div className="main__item">
+              <div className="fire">
+                <div className="main__wrapper--top">
+                  <div className="main__wrapper--two main__wrapper--super">
+                    <img src={supergra} alt="supergra" className="main__logo" />
+                    <div>
+                      <p className="main__top--title main__top--title--super">
+                        Super Game
+                      </p>
+                      <img src={stars} alt="" className="main__stars" />
+                    </div>
+                  </div>
+                  <img src={hot} alt="info" className="main__info--svg" />
                 </div>
-              </div>
-              <img src={hot} alt="info" className="main__info--svg" />
-            </div>
-            <div className="main__middle">
-              <div className="main__promo--wrapper">
-                <p className="main__text--top">100FS</p>
-              </div>
-              <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
-            </div>
-            <button
-              type="button"
-              className="main__button"
-              onClick={(e) => {
-                clickHandler(
-                  e,
-                  "tg://resolve?start=ZGw6MjA2NzI1&domain=spin_ua_bonus_bot",
-                  "super"
-                );
-              }}
-            >
-              ОТРИМАТИ БОНУС
-            </button>
-          </div>
-          <div className="main__item">
-            <div className="main__wrapper--top">
-              <div className="main__wrapper--two">
-                <img src={favbet} alt="favbet" className="main__logo" />
-                <div>
-                  <p className="main__top--title">Favbet</p>
-                  <img src={stars} alt="" className="main__stars" />
+                <div className="main__middle">
+                  <div className="main__promo--wrapper">
+                    <p className="main__text--top">100FS</p>
+                  </div>
+                  <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
                 </div>
+                <button
+                  type="button"
+                  className="main__button"
+                  onClick={(e) => {
+                    clickHandler(
+                      e,
+                      "tg://resolve?start=ZGw6MjIyODQ3&domain=top_from_streamer_bot",
+                      "super"
+                    );
+                  }}
+                >
+                  ОТРИМАТИ БОНУС
+                </button>
               </div>
-              <img src={top} alt="info" className="main__info--svg" />
             </div>
-            <div className="main__middle">
-              <div className="main__promo--wrapper">
-                <p className="main__text--top">100FS</p>
+          )}
+          {(!showOffers || showOffers.has(4)) && (
+            <div className="main__item">
+              <div className="fire">
+                <div className="main__wrapper--top">
+                  <div className="main__wrapper--two">
+                    <img src={logo777} alt="777" className="main__logo" />
+                    <div>
+                      <p
+                        className="main__top--title"
+                        style={{ letterSpacing: "0.1em" }}
+                      >
+                        777
+                      </p>
+                      <img src={stars} alt="" className="main__stars" />
+                    </div>
+                  </div>
+                  <img src={hot} alt="info" className="main__info--svg" />
+                </div>
+                <div className="main__middle">
+                  <div className="main__promo--wrapper">
+                    <p className="main__text--top">200 ГРН</p>
+                  </div>
+                  <p className="main__text--bottom">БЕЗ ДЕПОЗИТУ</p>
+                </div>
+                <button
+                  type="button"
+                  className="main__button"
+                  onClick={(e) => {
+                    clickHandler(
+                      e,
+                      "tg://resolve?start=ZGw6MjIyODU5&domain=top_from_streamer_bot",
+                      "777"
+                    );
+                  }}
+                >
+                  ОТРИМАТИ БОНУС
+                </button>
               </div>
-              <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
             </div>
-            <button
-              type="button"
-              className="main__button"
-              onClick={(e) => {
-                clickHandler(
-                  e,
-                  "tg://resolve?start=ZGw6MjA2NzIy&domain=spin_ua_bonus_bot",
-                  "favbet"
-                );
-              }}
-            >
-              ОТРИМАТИ БОНУС
-            </button>
-          </div>
-          <div className="main__item" style={{ height: "294px" }}>
+          )}
+          {(!showOffers || showOffers.has(5)) && (
+            <div className="main__item">
+              <div className="fire">
+                <div className="main__wrapper--top">
+                  <div className="main__wrapper--two">
+                    <img src={favbet} alt="favbet" className="main__logo" />
+                    <div>
+                      <p className="main__top--title">Favbet</p>
+                      <img src={stars} alt="" className="main__stars" />
+                    </div>
+                  </div>
+                  <img src={top} alt="info" className="main__info--svg" />
+                </div>
+                <div className="main__middle">
+                  <div className="main__promo--wrapper">
+                    <p className="main__text--top">100FS</p>
+                  </div>
+                  <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
+                </div>
+                <button
+                  type="button"
+                  className="main__button"
+                  onClick={(e) => {
+                    clickHandler(
+                      e,
+                      "tg://resolve?start=ZGw6MjIyODQ0&domain=top_from_streamer_bot",
+                      "favbet"
+                    );
+                  }}
+                >
+                  ОТРИМАТИ БОНУС
+                </button>
+              </div>
+            </div>
+          )}
+          {/* <div className="main__item" style={{ height: "294px" }}>
             <div className="main__wrapper--top">
               <div className="main__wrapper--two">
                 <img src={favbet} alt="favbet" className="main__logo" />
@@ -505,33 +622,50 @@ export const Main = () => {
             >
               ОТРИМАТИ БОНУС
             </button>
-          </div>
-          <div
-            className="main__item"
-            style={{
-              background: "linear-gradient(180deg, #570B0B 0%, #1D0808 100%)",
-            }}
-          >
-            <img src={logo777} alt="logotype" width={254} height={76} />
-            <p className="main__text--top">200 ГРН</p>
-            <p className="main__text--bottom" style={{ height: "30px" }}></p>
-            <div className="main__fade">
-              <p className="main__fade--text">БЕЗ ДЕПОЗИТУ</p>
+          </div> */}
+          {(!showOffers || showOffers.has(6)) && (
+            <div className="main__item">
+              <div className="fire">
+                <div className="main__wrapper--top">
+                  <div className="main__wrapper--two">
+                    <img
+                      src={casinoua}
+                      alt="Casino UA"
+                      className="main__logo"
+                    />
+                    <div>
+                      <p className="main__top--title main__title--ua">
+                        Casino Ua
+                      </p>
+                      <img src={stars} alt="" className="main__stars" />
+                    </div>
+                  </div>
+                  <img src={hot} alt="info" className="main__info--svg" />
+                </div>
+                <div className="main__middle">
+                  <div className="main__promo--wrapper">
+                    <p className="main__text--top main__text--ua">
+                      200,000 ГРН + 300FS
+                    </p>
+                  </div>
+                  <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
+                </div>
+                <button
+                  type="button"
+                  className="main__button"
+                  onClick={(e) => {
+                    clickHandler(
+                      e,
+                      "tg://resolve?start=ZGw6MjIyODU2&domain=top_from_streamer_bot",
+                      "casino"
+                    );
+                  }}
+                >
+                  ОТРИМАТИ БОНУС
+                </button>
+              </div>
             </div>
-            <button
-              type="button"
-              className="main__button"
-              onClick={(e) => {
-                clickHandler(
-                  e,
-                  "tg://resolve?start=ZGw6MjA2NzI4&domain=spin_ua_bonus_bot",
-                  "777"
-                );
-              }}
-            >
-              ОТРИМАТИ БОНУС
-            </button>
-          </div>
+          )}
         </div>
       </div>
     </main>

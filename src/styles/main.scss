@@ -36,7 +36,23 @@
   padding: 10px;
   border-radius: 20px;
   background: linear-gradient(360deg, #ff2b2b 7.83%, #971549 110.01%);
+
   border: 2px solid #e99898;
+}
+
+.fire {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 392px;
+  width: 100%;
+  height: 280px;
+  border-radius: 20px;
+  background-image: url("../assets/fire.png");
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
 .main__middle {
@@ -76,6 +92,10 @@
   color: #fdf351;
 }
 
+.main__text--sc {
+  font-size: 31px;
+}
+
 .main__prize--list {
   display: flex;
   align-items: center;
@@ -103,7 +123,7 @@
   max-width: 375px;
   width: 100%;
   height: 67px;
-  border-radius: 12px;
+  border-radius: 20px;
   background: linear-gradient(180deg, #ffe924 7.62%, #fff741 100%);
 
   border: transparent;
@@ -113,6 +133,7 @@
   line-height: 36.75px;
   letter-spacing: -0.035em;
   text-align: center;
+  padding-top: 5px;
 
   color: #8c1439;
 
@@ -188,9 +209,74 @@
   color: #8c1439;
 }
 
+.main__text--ua {
+  font-size: 32px;
+}
+
+@media screen and (max-width: 405px) {
+  .main__top--title--super {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .main__text--ua {
+    font-size: 30px;
+  }
+
+  .main__top--title--super {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .main__text--top {
+    font-size: 26px;
+  }
+
+  .main__text--sc {
+    font-size: 26px;
+  }
+
+  .main__promo--wrapper {
+    gap: 11px;
+  }
+
+  .main__fade {
+    max-width: 145px;
+  }
+
+  .main__text--bottom {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .main__top--title {
+    font-size: 26px;
+  }
+
+  // .main__logo--ua {
+  // }
+
+  .main__wrapper--super {
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .main__top--title {
+    font-size: 26px;
+  }
+}
+
 @media screen and (max-width: 350px) {
   .main__prize--top {
     font-size: 21px;
+  }
+
+  .main__top--title--super {
+    font-size: 22px;
   }
 
   .main__prize--bottom {
@@ -205,6 +291,18 @@
 @media screen and (max-width: 330px) {
   .main__text--topSmaller {
     font-size: 39px;
+  }
+
+  .main__top--title--super {
+    font-size: 21px;
+  }
+
+  .main__text--ua {
+    font-size: 24px;
+  }
+
+  .main__title--ua {
+    font-size: 25px;
   }
 }
 
