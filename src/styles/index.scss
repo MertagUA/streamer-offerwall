@@ -1,0 +1,77 @@
+@import url("../assets/fonts/stylesheet.css");
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  background: linear-gradient(180deg, #971549 0%, #470031 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  font-family: "Gilroy", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.container {
+  max-width: 425px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 100px;
+  }
+}
+
+@import url("./header.scss");
+@import url("./main.scss");
+@import url("./footer.scss");
