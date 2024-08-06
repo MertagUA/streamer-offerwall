@@ -22,19 +22,18 @@ export const Main = () => {
   const sub7 = params.get("sub7") ?? localStorage.getItem("sub7");
   const sub8 = params.get("sub8") ?? localStorage.getItem("sub8");
   const sub9 = params.get("sub9") ?? localStorage.getItem("sub9");
-  const [showOffers, setShowOffers] = useState(null);
+  const [showOffers, setShowOffers] = useState([]);
 
   useEffect(() => {
     const showOffersParam = params.get("showOffers");
 
     if (showOffersParam) {
       const offerIds = showOffersParam.split(",").map(Number);
-      setShowOffers(new Set(offerIds));
+      setShowOffers(offerIds);
     } else {
-      setShowOffers(null);
+      setShowOffers([]);
     }
   }, []);
-
   if (!pid) {
     pid = 17;
   }
@@ -304,10 +303,261 @@ export const Main = () => {
       (sub9 !== null ? `&sub9=${sub9}` : "");
   }
 
+  const offers = [
+    {
+      id: 1,
+      component: (
+        <div className="main__item">
+          <div className="fire">
+            <div className="main__wrapper--top">
+              <div className="main__wrapper--two">
+                <img src={ggbet} alt="GG" className="main__logo" />
+                <div>
+                  <p className="main__top--title">GG</p>
+                  <img src={stars} alt="" className="main__stars" />
+                </div>
+              </div>
+              <img src={hot} alt="info" className="main__info--svg" />
+            </div>
+            <div className="main__middle">
+              <div className="main__promo--wrapper">
+                <p className="main__text--top" style={{ lineHeight: "59.1px" }}>
+                  12,000 ГРН
+                </p>
+              </div>
+              <p
+                className="main__text--bottom"
+                style={{ lineHeight: "21.1px" }}
+              >
+                50FS
+              </p>
+            </div>
+            <button
+              type="button"
+              className="main__button"
+              onClick={(e) => {
+                clickHandler(
+                  e,
+                  "tg://resolve?start=ZGw6MjIyODUz&domain=top_from_streamer_bot",
+                  "ggbet"
+                );
+              }}
+            >
+              ОТРИМАТИ БОНУС
+            </button>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 2,
+      component: (
+        <div className="main__item" style={{ height: "294px" }}>
+          <div className="fire">
+            <div className="main__wrapper--top">
+              <div className="main__wrapper--two">
+                <img src={slotscity} alt="SC" className="main__logo" />
+                <div>
+                  <p className="main__top--title">SC</p>
+                  <img src={stars} alt="" className="main__stars" />
+                </div>
+              </div>
+              <img src={hot} alt="info" className="main__info--svg" />
+            </div>
+            <div className="main__middle" style={{ height: "117px" }}>
+              <div className="main__promo--wrapper">
+                <p className="main__text--top main__text--sc">100 FS</p>
+                <div className="main__fade">
+                  <p className="main__fade--text">Промокод</p>
+                  <div className="main__fade--promo">CLUBWIN</div>
+                </div>
+              </div>
+              <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
+            </div>
+            <button
+              type="button"
+              className="main__button"
+              onClick={(e) => {
+                clickHandler(
+                  e,
+                  "tg://resolve?start=ZGw6MjIyODUw&domain=top_from_streamer_bot",
+                  "slotscity"
+                );
+              }}
+            >
+              ОТРИМАТИ БОНУС
+            </button>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 3,
+      component: (
+        <div className="main__item">
+          <div className="fire">
+            <div className="main__wrapper--top">
+              <div className="main__wrapper--two main__wrapper--super">
+                <img src={supergra} alt="supergra" className="main__logo" />
+                <div>
+                  <p className="main__top--title main__top--title--super">
+                    Super Game
+                  </p>
+                  <img src={stars} alt="" className="main__stars" />
+                </div>
+              </div>
+              <img src={hot} alt="info" className="main__info--svg" />
+            </div>
+            <div className="main__middle">
+              <div className="main__promo--wrapper">
+                <p className="main__text--top">100FS</p>
+              </div>
+              <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
+            </div>
+            <button
+              type="button"
+              className="main__button"
+              onClick={(e) => {
+                clickHandler(
+                  e,
+                  "tg://resolve?start=ZGw6MjIyODQ3&domain=top_from_streamer_bot",
+                  "super"
+                );
+              }}
+            >
+              ОТРИМАТИ БОНУС
+            </button>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 4,
+      component: (
+        <div className="main__item">
+          <div className="fire">
+            <div className="main__wrapper--top">
+              <div className="main__wrapper--two">
+                <img src={logo777} alt="777" className="main__logo" />
+                <div>
+                  <p
+                    className="main__top--title"
+                    style={{ letterSpacing: "0.1em" }}
+                  >
+                    777
+                  </p>
+                  <img src={stars} alt="" className="main__stars" />
+                </div>
+              </div>
+              <img src={hot} alt="info" className="main__info--svg" />
+            </div>
+            <div className="main__middle">
+              <div className="main__promo--wrapper">
+                <p className="main__text--top">200 ГРН</p>
+              </div>
+              <p className="main__text--bottom">БЕЗ ДЕПОЗИТУ</p>
+            </div>
+            <button
+              type="button"
+              className="main__button"
+              onClick={(e) => {
+                clickHandler(
+                  e,
+                  "tg://resolve?start=ZGw6MjIyODU5&domain=top_from_streamer_bot",
+                  "777"
+                );
+              }}
+            >
+              ОТРИМАТИ БОНУС
+            </button>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 5,
+      component: (
+        <div className="main__item">
+          <div className="fire">
+            <div className="main__wrapper--top">
+              <div className="main__wrapper--two">
+                <img src={favbet} alt="favbet" className="main__logo" />
+                <div>
+                  <p className="main__top--title">Favbet</p>
+                  <img src={stars} alt="" className="main__stars" />
+                </div>
+              </div>
+              <img src={top} alt="info" className="main__info--svg" />
+            </div>
+            <div className="main__middle">
+              <div className="main__promo--wrapper">
+                <p className="main__text--top">100FS</p>
+              </div>
+              <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
+            </div>
+            <button
+              type="button"
+              className="main__button"
+              onClick={(e) => {
+                clickHandler(
+                  e,
+                  "tg://resolve?start=ZGw6MjIyODQ0&domain=top_from_streamer_bot",
+                  "favbet"
+                );
+              }}
+            >
+              ОТРИМАТИ БОНУС
+            </button>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 6,
+      component: (
+        <div className="main__item">
+          <div className="fire">
+            <div className="main__wrapper--top">
+              <div className="main__wrapper--two">
+                <img src={casinoua} alt="Casino UA" className="main__logo" />
+                <div>
+                  <p className="main__top--title main__title--ua">Casino Ua</p>
+                  <img src={stars} alt="" className="main__stars" />
+                </div>
+              </div>
+              <img src={hot} alt="info" className="main__info--svg" />
+            </div>
+            <div className="main__middle">
+              <div className="main__promo--wrapper">
+                <p className="main__text--top main__text--ua">
+                  200,000 ГРН + 300FS
+                </p>
+              </div>
+              <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
+            </div>
+            <button
+              type="button"
+              className="main__button"
+              onClick={(e) => {
+                clickHandler(
+                  e,
+                  "tg://resolve?start=ZGw6MjIyODU2&domain=top_from_streamer_bot",
+                  "casino"
+                );
+              }}
+            >
+              ОТРИМАТИ БОНУС
+            </button>
+          </div>
+        </div>
+      ),
+    },
+  ];
+
   return (
     <main
       className="main"
-      style={showOffers?.size <= 3 ? { minHeight: "90vh" } : { fill: "dark" }}
+      style={showOffers.length <= 3 ? { minHeight: "90vh" } : { fill: "dark" }}
     >
       <div className="container">
         <p className="main__title">
@@ -364,90 +614,18 @@ export const Main = () => {
           </svg>
         </p>
         <div className="main__thumb">
-          {(!showOffers || showOffers.has(1)) && (
-            <div className="main__item">
-              <div className="fire">
-                <div className="main__wrapper--top">
-                  <div className="main__wrapper--two">
-                    <img src={ggbet} alt="GG" className="main__logo" />
-                    <div>
-                      <p className="main__top--title">GG</p>
-                      <img src={stars} alt="" className="main__stars" />
-                    </div>
-                  </div>
-                  <img src={hot} alt="info" className="main__info--svg" />
-                </div>
-                <div className="main__middle">
-                  <div className="main__promo--wrapper">
-                    <p
-                      className="main__text--top"
-                      style={{ lineHeight: "59.1px" }}
-                    >
-                      12,000 ГРН
-                    </p>
-                  </div>
-                  <p
-                    className="main__text--bottom"
-                    style={{ lineHeight: "21.1px" }}
-                  >
-                    50FS
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  className="main__button"
-                  onClick={(e) => {
-                    clickHandler(
-                      e,
-                      "tg://resolve?start=ZGw6MjIyODUz&domain=top_from_streamer_bot",
-                      "ggbet"
-                    );
-                  }}
-                >
-                  ОТРИМАТИ БОНУС
-                </button>
-              </div>
-            </div>
+          {showOffers.length === 0 && offers.map((offer) => offer.component)}
+          {showOffers.length > 0 &&
+            showOffers.map((id) => {
+              const offer = offers.find((offer) => offer.id === id);
+              return offer ? offer.component : null;
+            })}
+          {/* {(!showOffers || showOffers.has(1)) && (
+           
           )}
           {(!showOffers || showOffers.has(2)) && (
-            <div className="main__item" style={{ height: "294px" }}>
-              <div className="fire">
-                <div className="main__wrapper--top">
-                  <div className="main__wrapper--two">
-                    <img src={slotscity} alt="SC" className="main__logo" />
-                    <div>
-                      <p className="main__top--title">SC</p>
-                      <img src={stars} alt="" className="main__stars" />
-                    </div>
-                  </div>
-                  <img src={hot} alt="info" className="main__info--svg" />
-                </div>
-                <div className="main__middle" style={{ height: "117px" }}>
-                  <div className="main__promo--wrapper">
-                    <p className="main__text--top main__text--sc">100 FS</p>
-                    <div className="main__fade">
-                      <p className="main__fade--text">Промокод</p>
-                      <div className="main__fade--promo">CLUBWIN</div>
-                    </div>
-                  </div>
-                  <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
-                </div>
-                <button
-                  type="button"
-                  className="main__button"
-                  onClick={(e) => {
-                    clickHandler(
-                      e,
-                      "tg://resolve?start=ZGw6MjIyODUw&domain=top_from_streamer_bot",
-                      "slotscity"
-                    );
-                  }}
-                >
-                  ОТРИМАТИ БОНУС
-                </button>
-              </div>
-            </div>
-          )}
+           
+          )} */}
           {/* <div
             className="main__item"
             style={{
@@ -476,118 +654,15 @@ export const Main = () => {
               ОТРИМАТИ БОНУС
             </button>
           </div> */}
-          {(!showOffers || showOffers.has(3)) && (
-            <div className="main__item">
-              <div className="fire">
-                <div className="main__wrapper--top">
-                  <div className="main__wrapper--two main__wrapper--super">
-                    <img src={supergra} alt="supergra" className="main__logo" />
-                    <div>
-                      <p className="main__top--title main__top--title--super">
-                        Super Game
-                      </p>
-                      <img src={stars} alt="" className="main__stars" />
-                    </div>
-                  </div>
-                  <img src={hot} alt="info" className="main__info--svg" />
-                </div>
-                <div className="main__middle">
-                  <div className="main__promo--wrapper">
-                    <p className="main__text--top">100FS</p>
-                  </div>
-                  <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
-                </div>
-                <button
-                  type="button"
-                  className="main__button"
-                  onClick={(e) => {
-                    clickHandler(
-                      e,
-                      "tg://resolve?start=ZGw6MjIyODQ3&domain=top_from_streamer_bot",
-                      "super"
-                    );
-                  }}
-                >
-                  ОТРИМАТИ БОНУС
-                </button>
-              </div>
-            </div>
+          {/* {(!showOffers || showOffers.has(3)) && (
+            
           )}
           {(!showOffers || showOffers.has(4)) && (
-            <div className="main__item">
-              <div className="fire">
-                <div className="main__wrapper--top">
-                  <div className="main__wrapper--two">
-                    <img src={logo777} alt="777" className="main__logo" />
-                    <div>
-                      <p
-                        className="main__top--title"
-                        style={{ letterSpacing: "0.1em" }}
-                      >
-                        777
-                      </p>
-                      <img src={stars} alt="" className="main__stars" />
-                    </div>
-                  </div>
-                  <img src={hot} alt="info" className="main__info--svg" />
-                </div>
-                <div className="main__middle">
-                  <div className="main__promo--wrapper">
-                    <p className="main__text--top">200 ГРН</p>
-                  </div>
-                  <p className="main__text--bottom">БЕЗ ДЕПОЗИТУ</p>
-                </div>
-                <button
-                  type="button"
-                  className="main__button"
-                  onClick={(e) => {
-                    clickHandler(
-                      e,
-                      "tg://resolve?start=ZGw6MjIyODU5&domain=top_from_streamer_bot",
-                      "777"
-                    );
-                  }}
-                >
-                  ОТРИМАТИ БОНУС
-                </button>
-              </div>
-            </div>
+            
           )}
           {(!showOffers || showOffers.has(5)) && (
-            <div className="main__item">
-              <div className="fire">
-                <div className="main__wrapper--top">
-                  <div className="main__wrapper--two">
-                    <img src={favbet} alt="favbet" className="main__logo" />
-                    <div>
-                      <p className="main__top--title">Favbet</p>
-                      <img src={stars} alt="" className="main__stars" />
-                    </div>
-                  </div>
-                  <img src={top} alt="info" className="main__info--svg" />
-                </div>
-                <div className="main__middle">
-                  <div className="main__promo--wrapper">
-                    <p className="main__text--top">100FS</p>
-                  </div>
-                  <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
-                </div>
-                <button
-                  type="button"
-                  className="main__button"
-                  onClick={(e) => {
-                    clickHandler(
-                      e,
-                      "tg://resolve?start=ZGw6MjIyODQ0&domain=top_from_streamer_bot",
-                      "favbet"
-                    );
-                  }}
-                >
-                  ОТРИМАТИ БОНУС
-                </button>
-              </div>
-            </div>
-          )}
+            
+          )} */}
           {/* <div className="main__item" style={{ height: "294px" }}>
             <div className="main__wrapper--top">
               <div className="main__wrapper--two">
@@ -623,49 +698,9 @@ export const Main = () => {
               ОТРИМАТИ БОНУС
             </button>
           </div> */}
-          {(!showOffers || showOffers.has(6)) && (
-            <div className="main__item">
-              <div className="fire">
-                <div className="main__wrapper--top">
-                  <div className="main__wrapper--two">
-                    <img
-                      src={casinoua}
-                      alt="Casino UA"
-                      className="main__logo"
-                    />
-                    <div>
-                      <p className="main__top--title main__title--ua">
-                        Casino Ua
-                      </p>
-                      <img src={stars} alt="" className="main__stars" />
-                    </div>
-                  </div>
-                  <img src={hot} alt="info" className="main__info--svg" />
-                </div>
-                <div className="main__middle">
-                  <div className="main__promo--wrapper">
-                    <p className="main__text--top main__text--ua">
-                      200,000 ГРН + 300FS
-                    </p>
-                  </div>
-                  <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
-                </div>
-                <button
-                  type="button"
-                  className="main__button"
-                  onClick={(e) => {
-                    clickHandler(
-                      e,
-                      "tg://resolve?start=ZGw6MjIyODU2&domain=top_from_streamer_bot",
-                      "casino"
-                    );
-                  }}
-                >
-                  ОТРИМАТИ БОНУС
-                </button>
-              </div>
-            </div>
-          )}
+          {/* {(!showOffers || showOffers.has(6)) && (
+           
+          )} */}
         </div>
       </div>
     </main>
