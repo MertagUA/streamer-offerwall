@@ -8,6 +8,7 @@ import stars from "../../assets/stars.png";
 import top from "../../assets/top.png";
 import hot from "../../assets/hot.png";
 import casinoua from "../../assets/casinoua.png";
+import cosmobet from "../../assets/cosmobet.png";
 import { useEffect, useState } from "react";
 
 export const Main = () => {
@@ -201,6 +202,8 @@ export const Main = () => {
         onWebsiteFirstBtnClick();
       } else if (offer === "casino") {
         onWebsiteCasinoUABtnClick();
+      } else if (offer === "cosmobet") {
+        onWebsiteCosmobetBtnClick();
       }
     }, 3000);
   };
@@ -292,6 +295,20 @@ export const Main = () => {
   function onWebsiteCasinoUABtnClick() {
     window.location.href =
       `https://sho.tgntraff.com/click?pid=${pid}&offer_id=1292` +
+      (sub1 !== null ? `&sub1=${sub1}` : "") +
+      (sub2 !== null ? `&sub2=${sub2}` : "") +
+      (sub3 !== null ? `&sub3=${sub3}` : "") +
+      (sub4 !== null ? `&sub4=${sub4}` : "") +
+      (sub5 !== null ? `&sub5=${sub5}` : "") +
+      (sub6 !== null ? `&sub6=${sub6}` : "") +
+      (sub7 !== null ? `&sub7=${sub7}` : "") +
+      (sub8 !== null ? `&sub8=${sub8}` : "") +
+      (sub9 !== null ? `&sub9=${sub9}` : "");
+  }
+
+  function onWebsiteCosmobetBtnClick() {
+    window.location.href =
+      `https://sho.tgntraff.com/click?pid=${pid}&offer_id=1485` +
       (sub1 !== null ? `&sub1=${sub1}` : "") +
       (sub2 !== null ? `&sub2=${sub2}` : "") +
       (sub3 !== null ? `&sub3=${sub3}` : "") +
@@ -543,6 +560,44 @@ export const Main = () => {
                   e,
                   "tg://resolve?start=ZGw6MjIyODU2&domain=top_from_streamer_bot",
                   "casino"
+                );
+              }}
+            >
+              ОТРИМАТИ БОНУС
+            </button>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 7,
+      component: (
+        <div className="main__item">
+          <div className="fire">
+            <div className="main__wrapper--top">
+              <div className="main__wrapper--two">
+                <img src={cosmobet} alt="cosmobet" className="main__logo" />
+                <div>
+                  <p className="main__top--title main__title--ua">Cosmobet</p>
+                  <img src={stars} alt="" className="main__stars" />
+                </div>
+              </div>
+              <img src={hot} alt="info" className="main__info--svg" />
+            </div>
+            <div className="main__middle">
+              <div className="main__promo--wrapper">
+                <p className="main__text--top main__text--ua">100 FS + 100%</p>
+              </div>
+              <p className="main__text--bottom">БЕЗ ВІДІГРАШУ</p>
+            </div>
+            <button
+              type="button"
+              className="main__button"
+              onClick={(e) => {
+                clickHandler(
+                  e,
+                  "tg://resolve?start=ZGw6MjI2NDU5&domain=top_from_streamer_bot",
+                  "cosmobet"
                 );
               }}
             >
